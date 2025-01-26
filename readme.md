@@ -1,5 +1,9 @@
 # Micro-Task and Earning Platform
 
+## Admin Credentials
+- **Username:** hermender144@gmail.com
+- **Password:** 1234aA$
+
 ## Live Site URL
 [Micro-Task and Earning Platform](https://gig-flow-server.vercel.app/)
 
