@@ -455,7 +455,7 @@ async function run() {
             res.send(result);
         })
 
-        // notification collection
+        // notifications collection
         app.post('/notifications', verifyToken,  async (req, res) => {
             const notification = req.body;
             const result = await notificationCollection.insertOne(notification);
