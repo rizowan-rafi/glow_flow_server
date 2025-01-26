@@ -14,7 +14,7 @@ app.use(cors({
 app.use(express.json())
 // middleware
 const verifyToken = (req, res, next) => {
-    console.log('inside middleware : ', req.headers.authorization);
+    // console.log('inside middleware : ', req.headers.authorization);
     if (!req.headers.authorization) {
         return res.status(401).send({ message: 'no token found' })
     }
