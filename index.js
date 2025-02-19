@@ -14,7 +14,7 @@ app.use(cors({
 app.use(express.json())
 // middleware
 const verifyToken = (req, res, next) => {
-    // console.log('inside middleware : ', req.headers.authorization);
+    console.log('inside middleware : ', req.headers.authorization);
     if (!req.headers.authorization) {
         return res.status(401).send({ message: 'no token found' })
     }
@@ -181,7 +181,7 @@ async function run() {
             res.send(result);
         })
 
-        app.get('/tasks',verifyToken, async (req, res) => {
+        app.get('/tasks', async (req, res) => {
             const tasks = await taskCollection.find().toArray();
             res.send(tasks);
         })
@@ -469,7 +469,7 @@ async function run() {
         })
 
         // check admin,buyer and worker
-        app.get('/checkAdmin/:email', verifyToken, async (req, res) => {
+        app.get('/checkAdmin/:email',  async (req, res) => {
             const email = req.params.email;
             const user = await userCollection.findOne({ email: email, role: 'Admin' });
             if (user) {
@@ -479,7 +479,7 @@ async function run() {
             }
         })
 
-        app.get('/checkBuyer/:email', verifyToken, async (req, res) => {
+        app.get('/checkBuyer/:email',  async (req, res) => {
             const email = req.params.email;
             const user = await userCollection.findOne({ email: email, role: 'Buyer' });
             if (user) {
@@ -489,7 +489,7 @@ async function run() {
             }
         })
 
-        app.get('/checkWorker/:email', verifyToken,  async (req, res) => {
+        app.get('/checkWorker/:email',   async (req, res) => {
             const email = req.params.email;
             const user = await userCollection.findOne({ email: email, role: 'Worker' });
             if (user) {
